@@ -59,6 +59,44 @@ const swiper = new Swiper('.swiper', {
   
   });
 
-  const searchButton=document.querySelector('.t-search')
+  const searchButton=document.querySelector('.t-search'),
+        tClose=document.querySelector('.search-close'),
+        showClass=document.querySelector('.site');
+searchButton.addEventListener('click',function(){
+  showClass.classList.toggle('showsearch')
+})
+tClose.addEventListener('click',function(){
+  showClass.classList.remove('showsearch')
+})
   
   
+const dptButton=document.querySelector('.dpt-cat .dpt-trigger'),
+      dptClass=document.querySelector('.site');
+dptButton.addEventListener('click',function(){
+  dptClass.classList.toggle('showdpt')
+})
+
+
+var productThumb = new Swiper('.small-image',{
+  loop : true,
+  spaceBetween : 10,
+  slidesPerView: 3,
+  freeMode : true,
+  watchSlidesProgress: true,
+  breakpoints:{
+    481: {
+      spaceBetween : 32,
+    }
+  }
+});
+var productBig = new Swiper ('.big-image',{
+  loop : true,
+  autoheight : true,
+  navigation :{
+    nextEl : '.swiper-button-next',
+    preEl : '.swiper-button-prev',
+  },
+  thumbs:{
+    swiper : productThumb,
+  }
+})
