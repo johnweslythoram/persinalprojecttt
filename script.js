@@ -51,12 +51,16 @@ function toggle1(e) {
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     loop: true,
-  
+    autoplay: {
+    delay: 3000, // 3 seconds delay
+    disableOnInteraction: false, // Keeps autoplay running even after user interaction
+  },
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     },
-  
+    speed: 1000,
   });
 
   const searchButton=document.querySelector('.t-search'),
